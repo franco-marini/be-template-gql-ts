@@ -6,12 +6,16 @@ export const taskResolvers = {
       tasks.getTasks(filter)
   },
   Mutation: {
-    createTask: async (_: any, { title }: { title: string }) =>
-      tasks.createTask(title),
+    createTask: async (
+      _: any,
+      {
+        input: { title, description }
+      }: { input: { title: string; description: string } }
+    ) => tasks.createTask({ title, description }),
     updateTask: async (
       _: any,
-      { input: { id, title } }: { input: { id: string; title: string } }
-    ) => tasks.updateTask(id, title),
+      { input }: { input: { id: string; title: string; description: string } }
+    ) => tasks.updateTask(input),
     deleteTask: async (_: any, { id }: { id: string }) => tasks.deleteTask(id)
   }
 };

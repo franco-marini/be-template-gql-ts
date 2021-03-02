@@ -1,8 +1,15 @@
 import Task from '../models/task';
 
-const createTask = async (title: string) => {
+const createTask = async ({
+  title,
+  description
+}: {
+  title: string;
+  description: string;
+}) => {
   const NewTask = new Task({
-    title
+    title,
+    description
   });
   const savedTask = await NewTask.save();
   return savedTask;
@@ -20,11 +27,20 @@ const getTasks = async (filter: string = '') =>
     ]
   });
 
-const updateTask = async (id: string, title: string) =>
+const updateTask = async ({
+  id,
+  title,
+  description
+}: {
+  id: string;
+  title: string;
+  description: string;
+}) =>
   Task.findOneAndUpdate(
     { _id: id },
     {
-      title
+      title,
+      description
     },
     { new: true }
   );

@@ -4,11 +4,18 @@ export const taskDefs = gql`
   type Task {
     id: String
     title: String
+    description: String
     deleted: Boolean
   }
 
-  input TaskInput {
+  input TaskInputCreate {
+    description: String!
+    title: String!
+  }
+
+  input TaskInputUpdate {
     id: String!
+    description: String!
     title: String!
   }
 
@@ -17,8 +24,8 @@ export const taskDefs = gql`
   }
 
   type Mutation {
-    createTask(title: String!): Task
-    updateTask(input: TaskInput!): Task
+    createTask(input: TaskInputCreate!): Task
+    updateTask(input: TaskInputUpdate!): Task
     deleteTask(id: String!): Task
   }
 `;
