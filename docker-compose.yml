@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  backend:
+    build: .
+    command: yarn start
+    volumes:
+      - ./be
+      - /be/node_modules
+    ports:
+      - '${PORT}:${PORT}'
+    environment:
+      PORT: '${PORT}'
+      DATABASE_URL: '${DATABASE_URL}'
+  frontend:
+    build: ../fe
+    command: yarn start
+    volumes:
+      - ./fe
+      - /fe/node_modules
+    ports:
+      - '3000:3000'
+    environment:
+      REACT_APP_API: '${REACT_APP_API}'
+    depends_on:
+      - backend

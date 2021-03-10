@@ -7,6 +7,5 @@ export interface ResponseParams {
 }
 
 export interface Response extends ExpressResponse {
-  status(status: number);
   success: (params: ResponseParams) => void;
 }
