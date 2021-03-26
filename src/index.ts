@@ -17,7 +17,7 @@ dotenv.config();
 // Server and port initializations
 const app = express();
 const router = Router();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT_BE || 4000;
 
 const schema = makeExecutableSchema(ExecutableSchema);
 

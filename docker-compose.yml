@@ -8,9 +8,9 @@ services:
       - ./be
       - /be/node_modules
     ports:
-      - '${PORT}:${PORT}'
+      - '${PORT_BE}:${PORT_BE}'
     environment:
-      PORT: '${PORT}'
+      PORT_BE: '${PORT_BE}'
       DATABASE_URL: '${DATABASE_URL}'
   frontend:
     build: ../fe

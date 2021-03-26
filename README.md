@@ -39,7 +39,7 @@ A useful example of typescript and graphql. It a simple create, update, delete a
 The env file should have the following variables
 
 ```
-PORT=4000
+PORT_BE=4000
 DATABASE_URL='mongodb+srv://<username>:<password>@<cluster_url>'
 ENVIRONMENT='dev'
 ```
